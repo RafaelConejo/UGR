@@ -1,0 +1,26 @@
+	- El resultado de la ejecuccion es el mismo en ambos
+	- Las diferencias a nivel de codigo son que el primero usaba la orden "close" para cerrar la salida estandar y asi dejar la entrada del descriptor de lectura del hijo libre y luego "dup" para duplicar el descriptor de escritura en el cauce. Lo mismo hace con el proceso padre pero con la entrada estandar.
+	- El segundo usa solamente la orden "dup2", que hace lo mismo que las otras dos juntas en una sola orden, cerrando el descriptor antiguo y duplicando el descriptor despues. Se garantiza que la llamada es atomica, por lo que si por ejemplo, si llega una señal al proceso, toda operacion transcurrira antes de devolverle el control al nucleo para gestionar la señal.
+	- Así pues hemos creado un cauce en el que el proceso hijo ejecuta la orden ls y lo redirecciona al descriptor de escritura de salida deseado, no a la salida estandar, con lo cual el proceso padre, en el que también hemos redirigido la entrada para que no sea la estandar, recibe el la informacion de la orden que ejecuto el hijo y seguidamente ejecuta la orden sort.
+	
+	$ ./tarea8
+		ComunicacionFIFO
+		consumidorFIFO
+		consumidorFIFO.c
+		ejer_exp_1
+		ejer_exp_2
+		ejer_exp_3
+		ejer_exp_4
+		productorFIFO
+		productorFIFO.c
+		tarea6
+		tarea6.c
+		tarea7
+		tarea7.c
+		tarea8
+		tarea8.c
+		
+		
+En resumen "dup2" nos permite indicar explicitamente el descriptor que vamos a utilizar en lugar de coger el primer desciptor que estuviera libre. 
+Despues del fork redirije la salida estandar al file descriptor que queremos, ejecuta ls en el hijo, el padre lo recibe desde la entrada estandar y se lo pasa a sort.
+

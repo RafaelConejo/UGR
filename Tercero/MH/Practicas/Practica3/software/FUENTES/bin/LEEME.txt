@@ -1,0 +1,10 @@
+random.cpp/.h: este fichero contiene el mismo código que el publicado en la web. Para utilizar esta clase, utilizo desde el “main” la función “Set_random” inicializando la semilla a 49137372.
+utiles.cpp/.h: en estos archivos he definido los métodos para leer los datos de entrada, tanto del conjunto de datos como el de la matriz de restricciones. Métodos que utilizaré en el “main” para inicializar los vectores de datos y restricciones. La lectura la he realizado gracias a “fstream”
+trayectorias_simples.cpp/.h: en este archivo están definidos los métodos necesarios para ejecutar el algoritmo de enfriamiento simulado (ES) ya definido.
+trayectorias_multiples.cpp/.h: en este caso encontramos los métodos necesarios para ejecutar los algoritmos de búsqueda multiarranque básica (BMB) y búsqueda local reiterada (ILS) junto con la búsqueda local (BL) necesario en ambos algoritmos.
+hibridos.cpp/.h: en este archivo están definidos los métodos necesarios para ejecutar el algoritmo de ILS-ES ya definido.
+evaluacion.cpp/.h: encontramos las diferentes funciones que nos permiten ejecutar la función objetivo, además se encarga de ir incrementando el número de evaluaciones realizadas.  
+main.cpp: es el programa principal desde el que se llama a los métodos anteriormente descritos.
+
+
+Semillas utilizadas en orden de 1 ejecución a 5: "49137372", "491373", "4913", "49", "100"

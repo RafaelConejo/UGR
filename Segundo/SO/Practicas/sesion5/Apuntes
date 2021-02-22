@@ -1,0 +1,27 @@
+1. Como podemos enviar una señal de los bloqueados en la tarea11.c
+	kill -señal pid
+	
+	Para saber el pid desde otra terminal del proceso uso:	ps -aux | grep tarea11
+	
+	
+
+2. Como podemos implementar que se implima por pantalla cada vez que se recibe una señal
+	Creamos una funcion manejador de señales y despues la llamamos en el main con una estructura sigaction.
+	
+	
+	
+	
+3. Como implementar que un proceso le mande una señal a otro proceso
+	kill pid señal
+	
+	
+4. Como hacemos lo anterior pero sin pasar el pid del proceso que se le va a mandar la señal?
+	Le hacemos fork() y de esta forma el padre puede encargarse de enviar la señal y el hijo de recibirla.
+	Con pid = fork();	//Ya puedo hacer que el hijo se encargue de recibir o enviar la señal sin necesidad de darle pid
+	
+	
+	
+	
+5. Es posible que no haya funcionado ¿por que puede ser?
+	Porque esta esperando a que se ejecute el proceso hijo
+	Para ello puedo hacer wait o poner un sleep de 5 segundos.

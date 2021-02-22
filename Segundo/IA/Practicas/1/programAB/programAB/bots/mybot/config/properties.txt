@@ -1,0 +1,9 @@
+name:Androme
+email:nobody@nowhere.com
+gender:female
+botmaster:theBoss	
+organization:ugr
+version:0.0.4
+
+age:21
+job:estudiante

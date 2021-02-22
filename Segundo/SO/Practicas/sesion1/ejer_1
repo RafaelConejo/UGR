@@ -1,0 +1,31 @@
+El programa hace lo siguiente:
+	- Crea dos array, buf1 y buf2, que contiene 10 caracteres cada uno. Crea un entero"fd" al cual asigna el valor de la llamada al sistema open del archivo "archivo", el resultado del cual da error si es menor que 0 lo que devuelve.
+	Con O_CREAT se está creando el archivo si no existe, 
+	Con O_TRUNC si existe el fichero y tiene habilitada la escritura, lo sobreescrite a tamaño 0.
+	Con O_WRONLY decimos que solo permiso de escritura.
+	Con S_IRUSR comprobamos que el usuario tiene permisos de lectura.
+	Con S_IWUSR comprobamos que el usuario tiene permisos de escritura.
+	
+	- Después se comprueba que si, despues de hacer la orden write del primer bufer, el resultado de la operacion es distinto de 10 se produce error, dado que se deben escribir los 10 caracteres del primer bufer en el archivo.
+	
+	- Con lseek ponemos el puntero en la posicion 40 en bytes, desde el inicio del fichero (SEEK_SET) y da error si el resultado de a operacion es menor que 0. Con esto conseguimos que el puntero se situe justo despues de los 40 bytes que hemos escrito prebiamente, al final de los 10 caracteres de buf1.
+	
+	- Por ultimo se llama a write para el segundo bufer igual que como hemos hecho para el primero. Se escriben los 10 caracteres de buf2.
+	
+	
+Compilamos con:
+	gcc tarea1.c -o tarea1
+	
+Hacemos el cat del archivo:
+	$ cat archivo 
+		abcdefghijABCDEFGHIJ
+		
+
+Con od:
+	$ od -c archivo 
+		0000000   a   b   c   d   e   f   g   h   i   j  \0  \0  \0  \0  \0  \0
+		0000020  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0
+		0000040  \0  \0  \0  \0  \0  \0  \0  \0   A   B   C   D   E   F   G   H
+		0000060   I   J
+		0000062
+

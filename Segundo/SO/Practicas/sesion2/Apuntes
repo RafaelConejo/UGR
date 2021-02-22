@@ -1,0 +1,5 @@
+umask establece la máscara para crear archivos.
+La máscara permite que no se modifiquen ciertos los permisos al realizar la llamada al sistema "open" o si el archivo no existe con "create".
+
+Los permisos que estan en la máscara se desactivan, si mi máscara en umask=22, el archivo se crea sin permisos de ejecuccion.
+Si hago el open con los permisos indicados en el mode, aunque indique ciertos permisos estos serán retirados según la máscara. 

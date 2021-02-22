@@ -1,0 +1,56 @@
+En la jerarquia tipo 1, cada hijo genera su hijo, genera 20
+En la de tipo 2, solo el padre inicial puede generar hijos.	
+	
+	
+	
+	
+	$ ./ejer_3_jer_1 
+		PID inicial: 4099 
+
+		Holi soy el hijo de 4099. Mi PID es 4100. 
+		Holi soy el hijo de 4100. Mi PID es 4101. 
+		Holi soy el hijo de 4101. Mi PID es 4102. 
+		Holi soy el hijo de 4102. Mi PID es 4103. 
+		Holi soy el hijo de 4103. Mi PID es 4104. 
+		Holi soy el hijo de 4104. Mi PID es 4105. 
+		Holi soy el hijo de 4105. Mi PID es 4106. 
+		Holi soy el hijo de 4106. Mi PID es 4107. 
+		Holi soy el hijo de 4107. Mi PID es 4108. 
+		Holi soy el hijo de 4108. Mi PID es 4109. 
+		Holi soy el hijo de 4109. Mi PID es 4110. 
+		Holi soy el hijo de 4110. Mi PID es 4111. 
+		Holi soy el hijo de 4111. Mi PID es 4112. 
+		Holi soy el hijo de 4112. Mi PID es 4113. 
+		Holi soy el hijo de 4113. Mi PID es 4114. 
+		Holi soy el hijo de 4114. Mi PID es 4115. 
+		Holi soy el hijo de 4115. Mi PID es 4116. 
+		Holi soy el hijo de 4116. Mi PID es 4117. 
+		Holi soy el hijo de 4117. Mi PID es 4118. 
+		Holi soy el hijo de 4118. Mi PID es 4119. 
+
+
+
+
+	$ ./ejer_3_jer_2
+		PID inicial: 4280 
+
+		Holi soy el hijo 0. Mi PID es 4281 y mi padre de PID 4280. 
+		Holi soy el hijo 1. Mi PID es 4282 y mi padre de PID 4280. 
+		Holi soy el hijo 2. Mi PID es 4283 y mi padre de PID 4280. 
+		Holi soy el hijo 3. Mi PID es 4284 y mi padre de PID 4280. 
+		Holi soy el hijo 4. Mi PID es 4285 y mi padre de PID 4280. 
+		Holi soy el hijo 5. Mi PID es 4286 y mi padre de PID 4280. 
+		Holi soy el hijo 6. Mi PID es 4287 y mi padre de PID 4280. 
+		Holi soy el hijo 7. Mi PID es 4288 y mi padre de PID 4280. 
+		Holi soy el hijo 8. Mi PID es 4289 y mi padre de PID 4280. 
+		Holi soy el hijo 9. Mi PID es 4290 y mi padre de PID 4280. 
+		Holi soy el hijo 10. Mi PID es 4291 y mi padre de PID 4280. 
+		Holi soy el hijo 11. Mi PID es 4292 y mi padre de PID 4280. 
+		Holi soy el hijo 12. Mi PID es 4293 y mi padre de PID 4280. 
+		Holi soy el hijo 13. Mi PID es 4294 y mi padre de PID 4280. 
+		Holi soy el hijo 14. Mi PID es 4295 y mi padre de PID 4280. 
+		Holi soy el hijo 15. Mi PID es 4296 y mi padre de PID 4280. 
+		Holi soy el hijo 16. Mi PID es 4297 y mi padre de PID 4280. 
+		Holi soy el hijo 17. Mi PID es 4298 y mi padre de PID 4280. 
+		Holi soy el hijo 18. Mi PID es 4299 y mi padre de PID 4280. 
+		Holi soy el hijo 19. Mi PID es 4300 y mi padre de PID 4280. 

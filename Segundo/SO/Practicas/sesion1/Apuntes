@@ -1,0 +1,17 @@
+El objetivo del Modulo II es la programación de sistemas utilizando los servicios del sistema operativo (llamadas al sistema).
+Una API es una interfaz que es un punto de conexión con el programa, aquellos progrmas del SO que me permitirán desarrollar otras programas/aplicaciones.
+
+Para nosotros es lo mismo que las llamadas las resuleva el SO que una biblioteca que haya implementada.
+
+Todas la funciones que realizaremos mandan un código de error que nos dice lo bien que se ha ejecutado. Se puede imprimir con perror.
+
+Entradas/Salidas en UNIX, tenemos cinco llamadas: open,read,write,lseek y close.
+Son entras y salidas sin búfer (cada read o write invoca una llamada al sistema en el núcleo y no se almacena en un bufer de la biblioteca), es decir, si hacemos un write nos vuelca la información que no queda almacenada.
+El núcleo le asigna a todos los archivos abiertos un identificador llamado descriptores de archivo, estos son número enteros no negativos.
+Cuando creo un archivo también se le asigna un descriptor. 
+La entrada estandar (teclado) tiene por convenio el descriptor de archivo 0.
+El descriptor de archivo 1 corresponde a la salida estandar y el descriptor 2 a la salida de error.
+
+La máscara sirve para enmascarar de forma que al crear un archivo enmascaro ciertos permisos (umask). Determino que cosas no se pueden tocar, le asigno umask valor 1, y al crear el archivo pongo todos los Bytes de umask a 0 ~umask.
+
+Write devuelve el número de bytes escritos en ese archivo.

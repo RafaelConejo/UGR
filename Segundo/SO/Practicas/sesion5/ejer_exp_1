@@ -1,0 +1,13 @@
+	./reciboSignal &
+		1] 2864
+	$ ./envioSignal 1 2864
+
+		Recibida la senal SIGUSR1
+
+	$ ./envioSignal 2 2864
+
+		Recibida la senal SIGUSR2
+
+	$ ./envioSignal 0 2864
+		[1]+  Terminado               ./reciboSignal
+

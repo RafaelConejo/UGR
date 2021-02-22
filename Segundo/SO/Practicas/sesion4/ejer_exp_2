@@ -1,0 +1,13 @@
+	- Lo primero que hacemos es crear un cauce con la orden "pipe", pasandole como parametro el vector de enteros "fd", lo cual asigna por defecto el mode lectura a fd[0] y el de escritura a fd[1].
+	- Despues crea el hijo con la orden fork(). Tras ello entramos en la zona del código del hijo, comprobando que PID sea 0, y lo primero que hace es cerrar el descriptor de lectura del mismo. Despues envia el mensaje a traves del cauce usando el descriptor de escritura fd[1], mediante la orden write.
+	- En la zona del codigo del proceso padre, lo primero que hacemos es cerrar el descriptor de escritura fd[1], y tras ello lee los datos del cauc usando el descriptor de lectura fd[0], mediante la orden read. Finalmente imprime el numero de bytes de la cadena recibida y la misma cadena.
+	- Como resultado hemos conseguido la comunicacion de cauces deseada en la direccion deseada, la cual tambien se podria hacer al reves.
+
+
+
+	$ ./tarea6 
+
+		El numero de bytes recibidos es: 47
+		La cadena enviada a traves del cauce es: 
+		El primer mensaje transmitido por un cauce!!
+

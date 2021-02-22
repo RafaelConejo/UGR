@@ -1,0 +1,19 @@
+Analizamos lo que hace tarea4.c
+
+	- Este programa declara una variable "global" con valor 6, un "buf" que es un string, una variable tipo int llamada "var" y una variable de tipo pid_t, "pid"
+	Le da el valor 88 a la variable "var" y procede a imprimir por pantalla el string en "buf" mediante la funcion write en la salida estandar (STDOUT_FILENO)
+	
+	- Luego procede a crear el proceso hijo con la funcion fork(), y lo asigna a la variable pid. Si pid vale 0 se ejecuta el codigo del proceso hijo, que lo unico que hace es incrementar tanto la variable "global" como "var"
+	Si no vale 0 (es decir su valor es el PID del proceso hijo) ejecuta el código del proceso padre, que solamente hace un sleep de 1 segundo.
+	
+	
+	
+	
+	$ ./tarea4 
+		cualquier mensaje de salida
+
+		Mensaje previo a la ejecución de fork
+		pid= 3830, global= 7, var= 89
+		Mensaje previo a la ejecución de fork
+		pid= 3829, global= 6, var= 88
+

@@ -1,0 +1,20 @@
+El programa hace lo siguiente:
+	- Crea un archivo llamado "archivo1" con permisos de lectura, escritura, y ejecucion para el grupo, seguidamente pone la mascara a 0 con la orden umask(0) y después crea el otro archivo llamado "archivo2", con los mismos permisos que el anterior.
+	
+	Con umask(0) hace que no se desactive ninguno de los permisos.
+	
+	- Luego comprueba que se puede acceder a los atributos del primer archivo con la orden stat.
+	
+	- Despues con chmod cambiamos los permisos del primer archivo haciendo un AND logico del estado del archivo (accediendo al struct atributos) con el negado del permiso de ejecucion para grupo, con lo que quitamos el permiso de ejecucion para grupo.
+	Tambien activamos la asignacion de GID del propietario al GID efectivo del proceso que ejecute el archivo.
+	
+	- Con chmod cambiamos los permisos del segundo archivo para que tenga todos los permisos para el propio usuario, permisos de lectura y escritura para el grupo y lectura para el resto de usuarios.
+	
+	
+	
+	
+	
+	
+	----rwS--- 1 rafael rafael     0 nov 17 18:44 archivo1
+	-rwxrw-r-- 1 rafael rafael     0 nov 17 18:44 archivo2
+

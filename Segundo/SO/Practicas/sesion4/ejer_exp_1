@@ -1,0 +1,25 @@
+No me funciona
+
+Deberia ser
+
+
+
+	$ ./productorFIFO mensaje | ./consumidorFIFO 
+
+El programa productorFIFO almacena la cadena mensaje en el archivo COmunicacionFIFO y consumidorFIFO lo lee, pero eso si, es el programa consumidorFIFO el que crea el archivo ComunicacionFIFO, con lo que productorFIFO espera a poder acceder al archivo, escribe en el y el consumidor lee de el.
+
+
+Otra forma que si me ha funcionado:
+	
+	$ ./consumidorFIFO &
+		[10] 3336
+	$ ./productorFIFO "hola"
+	 
+		Mensaje recibido: hola
+
+	$ ./productorFIFO "fin"
+		[10]   Hecho                   ./consumidorFIFO
+		
+
+Lanzamos primero el consumidor y lo dejamos en segundo plano. Tras ello ejecutamos el prodeuctor que manda un mensaje, como el consumidor esta en un bucle infinito esperando la entrada estandar, imprimirá el mensaje recibido inmediatamente, hasta recibir la cadena "fin"
+

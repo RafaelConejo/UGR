@@ -1,0 +1,16 @@
+1. Diferencia entre cauce sin nombre y cauce con nombre
+	En un proceso con nombre se abre un archivo temporal, en los sin nombre esto no se crea.
+	
+2. Funciones para crear cada uno de los cauces
+	con nombre se usa mknod y mkfifo
+	y sin nombre pipe
+	
+3. Como podriamos programar la eliminacion de un cauce con nombre
+	unlink(Archivo_fifo)
+	
+	
+4. Como podriamos redireccionar las salidas estandar 
+	Con dup2
+	
+	
+Cerramos por ejemplo fd[0] para evitar la lectura de los hijos, para evitar cualquier tipo de confusion, ya que no nos interesa que lean.

@@ -1,0 +1,15 @@
+	$ ./tarea7
+		ComunicacionFIFO
+		consumidorFIFO
+		consumidorFIFO.c
+		ejer_exp_1
+		ejer_exp_2
+		ejer_exp_3
+		productorFIFO
+		productorFIFO.c
+		tarea6
+		tarea6.c
+		tarea7
+		tarea7.c
+		tarea8.c
+

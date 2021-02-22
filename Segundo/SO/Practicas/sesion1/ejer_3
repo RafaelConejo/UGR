@@ -1,0 +1,3 @@
+	Cuando ejecutamos el programa pasandole como argumente <nombre_archivo>, nos dice que tipo de archivo es. Es decir el progrma nos dice de que tipo es el archivo que le pasamos como argumento.
+	
+	Internamente el programa comprueba cada flag correspondiente a un archivo determinado con el archivo que hemos introducido como parámetros, y si se activa nos muestra el tipo de archivo.

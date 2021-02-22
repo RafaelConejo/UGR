@@ -1,0 +1,17 @@
+	$ ./ejer_4
+		Soy el hijo de 4502 
+		Soy el hijo de 4503 
+		Soy el hijo de 4505 
+		Soy el hijo de 4504 
+		Soy el hijo de 4506 
+		Acaba de finalizar mi hijo con PID: 4502 
+		Solo me quedan 4 hijos vivos 
+		Acaba de finalizar mi hijo con PID: 4503 
+		Solo me quedan 3 hijos vivos 
+		Acaba de finalizar mi hijo con PID: 4504 
+		Solo me quedan 2 hijos vivos 
+		Acaba de finalizar mi hijo con PID: 4505 
+		Solo me quedan 1 hijos vivos 
+		Acaba de finalizar mi hijo con PID: 4506 
+		Solo me quedan 0 hijos vivos 
+

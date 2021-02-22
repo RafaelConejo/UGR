@@ -1,0 +1,101 @@
+sudo su
+apt-get update
+apt-get install xinetd telnetd
+adduser rafa
+apt-get install vsftpd
+apt-get install apache2 apache2-doc
+http://192.168.33.21/redes/fr/p1/
+cp telnet /etc/xinetd.d/
+cp vsftpd /etc/xinetd.d/
+cp default /etc/apache2/sites-available/
+
+EJERCICIO 1
+	Tengo la de datos	33.3.2.2	
+	Gestion 	192.168.3.3	
+	Interna 	172.18.141.89
+	lo	127.0.0.1
+
+EJERCICIO 2
+	He probado haciendo ping a la IP de mi compañera 192.168.3.4
+
+EJERCICIO 3
+	Edito el archivo telnet situado en etc/xinetd.d
+	Lo abro desde terminar con gedit
+		disable         = no
+	Reinicio telnet, con service xinetd restart
+	ya estoy en su home. Para salir hago exit.
+
+EJERCICIO 4
+	a)
+	Edito el archivo telnet situado en etc/xinetd.d
+	observo el man de xinetd.conf y encuentro only_from
+	only_from	= 192.168.3.5	//puede acceder mi compañero
+	service xinetd restart
+	telnet 192.168.3.4	//puedo conectarme solo a mi compañera
+
+	b)
+	Tengo que log_on_success
+
+	log_on_success	= HOST		//asi sale su IP
+	log_type	= FILE /var/log/telnet.log
+	
+	service xinetd restart
+
+	cat /var/log/telnet.log
+	START: telnet from=192.168.3.4
+	FAIL: telnet address from=192.168.3.4
+
+TELNET FINAL:
+        disable         = no
+        flags           = REUSE
+        socket_type     = stream
+        wait            = no
+        user            = root
+        server          = /usr/sbin/in.telnetd
+        log_on_failure  += HOST
+	only_from	= 192.168.3.5
+	log_on_success	= HOST
+	log_type	= FILE /var/log/telnet.log
+
+
+EJERCICIO 5
+	a)
+	Descargamos vsftpd
+	movemos:
+		mv vsftpd /etc/xinetd.d/
+	instalamos:
+		apt-get install vsftpd
+	
+	man vsftpd.conf
+	
+	listen = NO
+	
+	b)
+	anonymous_enable = NO
+
+	c)
+	Descomentar -> loca_enable = YES
+
+EJERCICIO 6
+	ftp <IP paula>
+	get <nombre_arch>
+
+
+EJERCICIO 7 
+	a)
+	creamos un archivo "userlist" en etc/xinetd.d y se colocan los usuarios que no queremos que accedan
+	en el archivo vsftp añadimos:
+		userlist_enable = /etc/xinetd.d/userlist
+
+	b)
+	en el archivo vsftpd.conf:
+		write_enable = YES	//esto permite la subida de archivos
+
+
+EJERCICIO 8
+	modificar el archivo /var/www/index.html
+
+	b)
+	Para acceder a la del compañero cambiamos el puerto a 8080 en 000-default y en
+ports.conf
+Colocamos la IP del compañero seguido de--> :8080

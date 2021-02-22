@@ -1,0 +1,4 @@
+narcos:temporada1@temporada2
+la casa de papel:temporada1@temporada2
+the expanse:temporada1
+fleabag:temporada1

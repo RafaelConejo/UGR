@@ -1,0 +1,2 @@
+El código de tarea5.c va a generar un proceso hijo, que con la orden ldd va a imprimir por pantalla las bibliotecas compartidas necesarias para ejecutar tarea5. 
+Una vez ejecutada la orden ldd y el hijo ha acabado (estado == 0), o se ha generado un error (estado != 0), el padre vuelve a la pantalla un mensaje con el PID del proceso hijo acabado y su estado.

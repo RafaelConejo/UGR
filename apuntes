@@ -1,0 +1,9 @@
+Para enlazar carpeta con github
+
+
+	rafa@rafa-Z97P-D3:~/Escritorio/UGR$ git config --global user.name "RafaelConejo"
+	rafa@rafa-Z97P-D3:~/Escritorio/UGR$ git config --global user.email "rafavazquez99@gmail.com"
+	rafa@rafa-Z97P-D3:~/Escritorio/UGR$ git config --list 
+	user.name=RafaelConejo
+	user.email=rafavazquez99@gmail.com
+

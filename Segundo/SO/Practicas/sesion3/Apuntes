@@ -1,0 +1,9 @@
+1. Como puedo saber el usuario que ejecuta 
+
+	id -u			//nos imprime el usuario
+	otra forma -> cat/
+	
+	
+2. 
+	Cada hijo tendría un identificador diferente, y no el del padre.
+	En el caso de que el fork de fallo se obtiene un PID negativo.

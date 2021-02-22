@@ -1,0 +1,12 @@
+Funciona y lo que hace es poner los permisos que vamos introduciendo a los archivos contenido dentro del directorio aportado.
+
+	$ ./ejer_2 prueba_2 00001
+		e : 	0 	1
+
+
+	$ ./ejer_2 prueba_2 00001
+		e : 	1 	1
+		
+		
+Saco los permisos de la tabla de la pagina 87
+

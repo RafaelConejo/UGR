@@ -1,0 +1,9 @@
+/home/rafa/Escritorio/2 año/Segundo Cuatri/IA/Practicas/2/practica2/CMakeFiles/rebuild_cache.dir
+/home/rafa/Escritorio/2 año/Segundo Cuatri/IA/Practicas/2/practica2/CMakeFiles/edit_cache.dir
+/home/rafa/Escritorio/2 año/Segundo Cuatri/IA/Practicas/2/practica2/CMakeFiles/BelkanSG.dir
+/home/rafa/Escritorio/2 año/Segundo Cuatri/IA/Practicas/2/practica2/CMakeFiles/GLUILib.dir
+/home/rafa/Escritorio/2 año/Segundo Cuatri/IA/Practicas/2/practica2/CMakeFiles/Belkan.dir
+/home/rafa/Escritorio/2 año/Segundo Cuatri/IA/Practicas/2/practica2/CMakeFiles/obj3DLib.dir
+/home/rafa/Escritorio/2 año/Segundo Cuatri/IA/Practicas/2/practica2/CMakeFiles/motorLib.dir
+/home/rafa/Escritorio/2 año/Segundo Cuatri/IA/Practicas/2/practica2/CMakeFiles/modelosBelkanLib.dir
+/home/rafa/Escritorio/2 año/Segundo Cuatri/IA/Practicas/2/practica2/CMakeFiles/comportamientosLib.dir

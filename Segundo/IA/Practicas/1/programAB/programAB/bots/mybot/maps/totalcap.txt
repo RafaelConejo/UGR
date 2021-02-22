@@ -1,0 +1,4 @@
+narcos:Descenso@La_espada_de_simon_bolivar@Los_hombres_de_siempre@El_palacio_en_llamas@Habra_futuro@Explosivos@Lloraras_lagrimas_de_sangre@La_gran_mentira@La_catedral@Despegue@Por_fin_libre@Cambalache@Nuestro_hombre_en_madrid@El_bueno_el_malo_y_el_muerto
+la casa de papel:episodio_1@episodio_2@episodio_3@episodio_4@episodio_5@episodio_6@episodio_7@episodio_8@episodio_9@episodio_1
+the expanse:Dulcinea@El_gran_vacio@Recordad_el_Cant@CBQ@De_vuelta_al_carnicero@En_las_profundidades@Molinos@Rescate@Masa_critica
+fleabag:episodio_1@episodio_2@episodio_3@episodio_4@episodio_5@episodio_6

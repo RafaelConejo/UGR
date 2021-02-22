@@ -1,0 +1,357 @@
+<?xml version="1.0"
+encoding="UTF-8"?>
+<aiml version="2.0">
+<!-- NIVEL 1 -->
+
+<!-- Informacion sobre una serie (si existe) -->
+<category>
+<pattern>^ [va trata] (la serie) [<set>seriesnetflix</set> <set>seriesprimevideo</set>] </pattern>
+<template>
+   <think><srai>code <set name="serie"><star index="2"/></set></srai></think>
+   <srai>decode <map><name><get name="serie"/></name>sinopsis</map></srai>
+</template>
+</category>
+
+
+<!-- Informacion sobre una serie (si no existe) -->
+<category>
+<pattern>^ [va trata] (la serie) * </pattern>
+<template>
+<think><srai>code <set name="serie"><star index="2"/></set></srai></think>
+La serie no esta en el catalogo, Desearia aniadirla
+</template>
+</category>
+
+<category>
+<pattern>Si</pattern>
+<that>La serie no esta en el catalogo, Desearia aniadirla</that>
+<template> Perfecto, crea una carpeta en maps llamada <get name="serie"/>.txt. Cuando hayas terminado reiniciame y al
+volver, pideme que aniada la serie. </template>
+</category>
+
+
+<!-- Aniade una nueva serie -->
+<category>
+<pattern>^ aniad+ * </pattern>
+<template>
+   <think><srai>code <set name="serie"><star index="2"/></set></srai></think>
+   <addtomap>
+      <name><srai>code <get name="serie"/></srai></name>
+      <key>nombre</key>
+      <value><srai>code <get name="serie"/></srai></value>
+   </addtomap>
+Perfecto, te realizare preguntas sobre la serie, Indiqueme en que Plataforma se encuentra
+</template>
+</category>
+
+<category>
+<pattern>^ aniad+ [<set>seriesnetflix</set> <set>seriesprimevideo</set>] </pattern>
+<template>
+   <think><srai>code <set name="serie"><star index="2"/></set></srai></think>
+La serie <get name="serie"/> ya se encuentra aniadida.
+</template>
+</category>
+
+
+<!-- Aniade Plataforma -->
+<category>
+<pattern>^ <set>plataforma</set> ^</pattern>
+<that>Perfecto, te realizare preguntas sobre la serie, Indiqueme en que Plataforma se encuentra</that>
+<template>
+   <think><set name="plataforma"><star index="2"/></set></think>
+   <condition name="plataforma">
+      <li value="netflix">
+         <addtoset>
+            <name>seriesnetflix</name>
+            <key><srai>decode <srai>code <get name="serie"/></srai></srai></key>
+         </addtoset>
+      </li>
+      <li value="primevideo">
+         <addtoset>
+            <name>seriesprimevideo</name>
+            <key><srai>decode <srai>code <get name="serie"/></srai></srai></key>
+         </addtoset>
+      </li>
+   </condition>
+   <addtomap>
+      <name><get name="serie"/></name>
+      <key>plataforma</key>
+      <value><get name="plataforma"/></value>
+   </addtomap>
+Bien, Digame a que genero pertenece
+</template>
+</category>
+
+
+<!-- Aniade en Genero -->
+<category>
+<pattern>^ <set>generos</set> ^ </pattern>
+<that>Bien, Digame a que genero pertenece</that>
+<template>
+   <think><set name="genero"><star index="2"/></set></think>
+   <addtomap>
+      <name><get name="serie"/></name>
+      <key>genero</key>
+      <value><get name="genero"/></value>
+   </addtomap>
+Digame de que trata la serie
+</template>
+</category>
+
+
+<!-- Aniade en sinopsis -->
+<category>
+<pattern> * </pattern>
+<that>Digame de que trata la serie</that>
+<template>
+   <think><set name="sinopsis"><star/></set></think>
+   <think><srai>code <get name="sinopsis"/></srai></think>
+   <addtomap>
+      <name><get name="serie"/></name>
+      <key>sinopsis</key>
+      <value><srai>code <get name="sinopsis"/></srai></value>
+   </addtomap>
+Digame en que Idiomas se encuentra disponible el audio de la serie
+</template>
+</category>
+
+
+<!-- Aniade en Audio -->
+<category>
+<pattern> * </pattern>
+<that>Digame en que Idiomas se encuentra disponible el audio de la serie</that>
+<template>
+   <think><set name="audios"><star/></set></think>
+   <addtomap>
+      <name><get name="serie"/></name>
+      <key>idiomas</key>
+      <value><get name="audios"/></value>
+   </addtomap>
+Digame los Subtitulos disponibles para la serie
+</template>
+</category>
+
+
+<!-- Aniade en Subtitulos -->
+<category>
+<pattern> * </pattern>
+<that>Digame los Subtitulos disponibles para la serie</that>
+<template>
+   <think><set name="subtitulos"><star/></set></think>
+   <addtomap>
+      <name><get name="serie"/></name>
+      <key>subtitulos</key>
+      <value><get name="subtitulos"/></value>
+   </addtomap>
+Digame si conoce una web asociada a la serie
+</template>
+</category>
+
+
+<!-- Aniade en web -->
+<category>
+<pattern>^ no ^</pattern>
+<that>Digame si conoce una web asociada a la serie</that>
+<template>
+Ok, ya hemos finalizado.
+</template>
+</category>
+
+<category>
+<pattern> * </pattern>
+<that>Digame si conoce una web asociada a la serie</that>
+<template>
+   <think><set name="web"><star/></set></think>
+   <addtomap>
+      <name><get name="serie"/></name>
+      <key>web</key>
+      <value><get name="web"/></value>
+   </addtomap>
+Ya tengo la web y hemos finalizado, gracias
+</template>
+</category>
+
+
+
+
+
+
+
+<!-- Introducir un nuevo capitulo -->
+<category>
+<pattern> ^ [Introd+ Insert+ Aniad+] ^ capitulo (de la) (en la) temporada <set>number</set> de [<set>seriesnetflix</set> <set>seriesprimevideo</set>] </pattern>
+<template>
+   <think>
+   <set name="serie"><star index="4"/></set>
+   <set name="numtemporada"><star index="3"/></set>
+   <set name="existe"><map><name><get name="serie"/></name>temporada<get name="numtemporada"/></map></set>
+   </think>
+   <condition name="existe">
+      <li value="unknown">Lo siento pero esta temporada no existe.</li>
+      <li>Digame el titulo del capitulo que desea introducir</li>
+   </condition>
+</template>
+</category>
+
+<category>
+<pattern> ^ [Introd+ Insert+ Aniad+] ^ capitulo (de la) (en la) temporada <set>number</set> de * </pattern>
+<template>
+Esa serie no existe en la plataforma, mis disculpas.
+</template>
+</category>
+
+
+<!-- Pide el nombre de un capitulo -->
+<category>
+<pattern> * </pattern>
+   <that>Digame el titulo del capitulo que desea introducir</that>
+<template>
+<think><set name="titulo"><star/></set></think>
+Digame ahora la duracion del capitulo
+</template>
+</category>
+
+
+<!-- Pide la duracion de un capitulo -->
+<category>
+<pattern><set>number</set></pattern>
+<that>Digame ahora la duracion del capitulo</that>
+<template>
+   <think>
+     <set var="duracion"><star/></set>
+     <set var="total"><map><name><get name="serie"/></name>temporada<get name="numtemporada"/></map></set>
+     <set var="antiguo"><map><name>totalcap</name><get name="serie"/></map></set>
+     <modifymap>
+        <name><get name="serie"/></name>
+        <key>temporada<get name="numtemporada"/></key>
+        <value><get var="total"/>@<srai>code <get name="titulo"/></srai>@<get var="duracion"/></value>
+     </modifymap>
+     <modifymap>
+        <name>totalcap</name>
+        <key><get name="serie"/></key>
+        <value><get var="antiguo"/>@<srai>code <get name="titulo"/></srai></value>
+     </modifymap>
+   </think>
+Ya tiene disponible este capitulo en la plataforma.
+</template>
+</category>
+
+
+
+
+
+
+
+
+
+<!-- Introducir una nueva temporada -->
+<category>
+<pattern> ^ [Introd+ Insert+ Aniad+] ^  temporada de [<set>seriesnetflix</set> <set>seriesprimevideo</set>] </pattern>
+<template>
+   <think><set name="serie"><star index="3"/></set></think>
+Digame que numero de temporada seria
+</template>
+</category>
+
+<category>
+<pattern> ^ [Introd+ Insert+ Aniad+] ^  temporada de * </pattern>
+<template>
+Lo siento pero esa serie no esta disponible en la plataforma.
+</template>
+</category>
+
+<!-- Pide numero de temporada -->
+<category>
+<pattern><set>number</set></pattern>
+<that>Digame que numero de temporada seria</that>
+<template>
+   <think>
+      <set name="num"><star/></set>
+      <set name="existe"><map><name><get name="serie"/></name>temporada<get name="num"/></map></set>
+   </think>
+   <condition name="existe">
+      <li value="unknown">Digame el nombre del primer capitulo de esta nueva temporada</li>
+      <li>Lo siento pero esa temporada ya existe</li>
+   </condition>
+</template>
+</category>
+
+<!-- Pide nombre primer capitulo -->
+<category>
+<pattern> * </pattern>
+<that>Digame el nombre del primer capitulo de esta nueva temporada</that>
+<template>
+   <think>
+      <srai>code <set name="titulo"><star/></set></srai>
+      <set name="antiguo"><map><name>totalcap</name><get name="serie"/></map></set>
+      </think>
+      <addtomap>
+            <name>totalcap</name>
+            <key><get name="serie"/></key>
+            <value>@<srai>code <get name="titulo"/></srai></value>
+         </addtomap>
+      <condition name="antiguo">
+            <li value="unknown"></li>
+            <li>
+               <modifymap>
+                  <name>totalcap</name>
+                  <key><get name="serie"/></key>
+                  <value><get name="antiguo"/>@<srai>code <get name="titulo"/></srai></value>
+               </modifymap>
+            </li>
+         </condition>
+Cual seria la duracion de este capitulo
+</template>
+</category>
+
+<!-- Pide la duracion de un capitulo -->
+<category>
+<pattern><set>number</set></pattern>
+<that>Cual seria la duracion de este capitulo</that>
+<template>
+   <think>
+      <set name="duracion"><star/></set>
+      <set name="num_total"><srai>count <srai>decode_fields <map><name>temporadas</name><get name="serie"/></map></srai></srai></set>
+      <set name="anterior"><map><name>temporadas</name><get name="serie"/></map></set>
+   </think>
+         <addtomap>
+            <name><get name="serie"/></name>
+            <key>temporada<get name="num"/></key>
+            <value><srai>code <get name="titulo"/></srai>@<get name="duracion"/></value>
+         </addtomap>
+         <addtomap>
+            <name>temporadas</name>
+            <key><get name="serie"/></key>
+            <value>temporada<get name="num"/></value>
+         </addtomap>
+         <condition name="anterior">
+            <li value="unknown"></li>
+            <li>
+               <modifymap>
+                  <name>temporadas</name>
+                  <key><get name="serie"/></key>
+                  <value><get name="anterior"/>@temporada<get name="num"/></value>
+               </modifymap>
+
+            </li>
+         </condition>
+         Ya tiene disponible esta nueva temporada en la plataforma.
+</template>
+</category>
+
+
+
+
+</aiml>
+
+
+
+<!--
+<set var="serie"><readset>series</readset></set>
+<set var="esta"></srai>finditem <star/> in <get var="serie"/>
+<condition var = "esta">
+<li value = "0">
+
+
+
+ -->

@@ -1,0 +1,19 @@
+¿Como se acceden a los atributos de un archivo?
+	stat("archivo.c", &atributos)
+	
+	Para ver el struct de los atributos hago "man 2 stat"
+	Si lo imprimo con %o en el printf se muestran los atribtutos en octal.
+		printf("%o\n", atributos.st_mode)
+		
+
+
+¿Como veo si un archivo es regular?
+	S_ISREG(atributos.st_mode)
+	
+	
+¿Como puedo leer los archivos de un directorio?
+	while((fichero = readdir(dir)) != NULL)
+	
+
+¿Como hago lo anterior pero evitando diretorio actual y padre?
+	if(strcmp(fichero->d_name,".") != 0 && strcmp(fichero->d_name,"..") != 0)
